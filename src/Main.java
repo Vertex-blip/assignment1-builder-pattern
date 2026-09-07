@@ -1,21 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        // 1. Толық параметрлері бар есеп құрастыру (Method Chaining арқылы)
-        Report annualReport = new Report.Builder()
-                .setTitle("Жылдық қаржылық есеп")
-                .setContent("Жылдық табыс 25%-ға ұлғайды.")
-                .setAuthor("Алихан")
+        Report fullReport = new Report.Builder()
+                .setTitle("Financial Report")
+                .setContent("Revenue increased by 20%")
+                .setAuthor("Alikhan")
                 .setFormat("PDF")
                 .build();
 
-        // 2. Кейбір параметрлері жоқ қарапайым есеп құрастыру
         Report quickReport = new Report.Builder()
-                .setTitle("Жедел хабарлама")
-                .setContent("Сервер сәтті іске қосылды.")
+                .setTitle("Status Update")
+                .setContent("Task completed successfully")
                 .build();
 
-        // Нәтижені консольге шығару
-        System.out.println(annualReport);
+        System.out.println(fullReport);
         System.out.println(quickReport);
     }
 }

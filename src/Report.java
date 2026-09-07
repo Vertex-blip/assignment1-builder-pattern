@@ -1,11 +1,9 @@
 public class Report {
-    // Өнімнің (Product) сипаттамалары
     private final String title;
     private final String content;
     private final String author;
     private final String format;
 
-    // Жабық (private) конструктор - сырттан тек Builder арқылы шақырылады
     private Report(Builder builder) {
         this.title = builder.title;
         this.content = builder.content;
@@ -13,7 +11,6 @@ public class Report {
         this.format = builder.format;
     }
 
-    // Тек оқуға арналған методтар (Getters)
     public String getTitle() {
         return title;
     }
@@ -32,18 +29,20 @@ public class Report {
 
     @Override
     public String toString() {
-        return "Report: [Title: '" + title + "', Content: '" + content +
-                "', Author: '" + author + "', Format: '" + format + "']";
+        return "Report{" +
+                "title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                ", format='" + format + '\'' +
+                '}';
     }
 
-    // Ішкі Builder класы
     public static class Builder {
         private String title;
         private String content;
         private String author;
         private String format;
 
-        // Clean Code ережесі: әр функция қысқа және тек бір міндет атқарады
         public Builder setTitle(String title) {
             this.title = title;
             return this;
@@ -64,10 +63,9 @@ public class Report {
             return this;
         }
 
-        // Соңғы өнімді жинап шығаратын әдіс
         public Report build() {
-            if (title == null || title.trim().isEmpty()) {
-                throw new IllegalStateException("Қате: Report тақырыбы (title) бос болмауы керек!");
+            if (title == null || title.isEmpty()) {
+                throw new IllegalStateException("Title is required");
             }
             return new Report(this);
         }
