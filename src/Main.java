@@ -1,18 +1,26 @@
 public class Main {
     public static void main(String[] args) {
-        Report fullReport = new Report.Builder()
-                .setTitle("Financial Report")
-                .setContent("Revenue increased by 20%")
-                .setAuthor("Alikhan")
-                .setFormat("PDF")
+        PCDirector director = new PCDirector();
+
+        GamingPC gamingPC = director.buildGamingPC(new GamingPC.Builder());
+        GamingPC budgetPC = director.buildBudgetPC(new GamingPC.Builder());
+
+        GamingPC customPC = new GamingPC.Builder()
+                .setCpu("Intel Core i7-14700K")
+                .setGpu("NVIDIA RTX 4070 Ti")
+                .setRamGb(32)
+                .setStorageGb(1000)
+                .setCooling("Liquid Cooling")
+                .setRgbLighting(true)
                 .build();
 
-        Report quickReport = new Report.Builder()
-                .setTitle("Status Update")
-                .setContent("Task completed successfully")
-                .build();
+        System.out.println("Gaming PC:");
+        System.out.println(gamingPC);
 
-        System.out.println(fullReport);
-        System.out.println(quickReport);
+        System.out.println("Budget PC:");
+        System.out.println(budgetPC);
+
+        System.out.println("Custom PC:");
+        System.out.println(customPC);
     }
 }
