@@ -1,26 +1,25 @@
-Assignment 1: Builder Pattern - GamingPC
-Project Overview
+# Assignment 1: Builder Pattern - GamingPC
+
+## Project Overview
 This project implements the Builder pattern in Java to assemble a Gaming PC. Instead of using a huge constructor with many parameters, the Builder helps configure required and optional PC parts step by step.
 
-Main Classes:
-GamingPC: Product class. Holds PC specifications (CPU, GPU, RAM, Storage, Cooling, RGB).
+### Main Classes:
+* **GamingPC**: Product class. Holds PC specifications (CPU, GPU, RAM, Storage, Cooling, RGB).
+* **GamingPC.Builder**: Static inner class to build the PC step-by-step.
+* **PCDirector**: Contains presets (`buildGamingPC`, `buildBudgetPC`).
+* **Main**: Client class to test the builds and print results.
 
-GamingPC.Builder: Static inner class to build the PC step-by-step.
+---
 
-PCDirector: Contains presets (buildGamingPC, buildBudgetPC).
+## Clean Code Principles (Section 3)
 
-Main: Client class to test the builds and print results.
-
-Clean Code Principles (Section 3)
-1. Meaningful Names
+### 1. Meaningful Names
 Variables and methods clearly state what they do without needing comments.
+* Example: `setCpu()`, `buildGamingPC()`, `budgetPC`.
 
-Example: setCpu(), buildGamingPC(), budgetPC.
-
-2. Small, Single-Purpose Methods
-Each method in the builder just sets one field and returns this.
-
-Java
+### 2. Small, Single-Purpose Methods
+Each method in the builder just sets one field and returns `this`.
+```java
 public Builder setCpu(String cpu) {
     this.cpu = cpu;
     return this;
